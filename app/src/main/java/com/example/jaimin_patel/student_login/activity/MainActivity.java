@@ -2,54 +2,64 @@
 
 package com.example.jaimin_patel.student_login.activity;
 
-import android.app.ActionBar;
-import android.app.Activity;
+
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.content.Intent;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.jaimin_patel.student_login.BottomNavigationBehavior.BottomNavigationBehavior;
 import com.example.jaimin_patel.student_login.Fragment.frag_counseling;
+import com.example.jaimin_patel.student_login.Fragment.frag_favourite;
 import com.example.jaimin_patel.student_login.Fragment.frag_home;
 import com.example.jaimin_patel.student_login.Fragment.frag_logout;
+import com.example.jaimin_patel.student_login.Fragment.frag_profile;
 import com.example.jaimin_patel.student_login.R;
-import com.example.jaimin_patel.student_login.helper.SQLiteHandler;
-import com.example.jaimin_patel.student_login.helper.SessionManager;
 
-import java.util.HashMap;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+	private Toolbar mTopToolbar;
 
-	private android.support.v7.app.ActionBar toolbar;
-
-
-	@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		toolbar = getSupportActionBar();
+		if (savedInstanceState == null) {
+			getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new frag_home()).commit();
+		}
+
+
 		BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
 		navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-
+		// attaching bottom sheet behaviour - hide / show on scroll
+		CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) navigation.getLayoutParams();
+		layoutParams.setBehavior(new BottomNavigationBehavior());
 		setTitle("Student Counseling");
 
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+
+		//noinspection SimplifiableIfStatement
+		if (id == R.id.action_favorite) {
+			Toast.makeText(MainActivity.this, "Action clicked", Toast.LENGTH_LONG).show();
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
 	}
 
 	private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -60,25 +70,25 @@ public class MainActivity extends AppCompatActivity {
 			Fragment fragment;
 			switch (item.getItemId()) {
 				case R.id.home:
-					toolbar.setTitle("Home");
 					fragment = new frag_home();
 					loadfragment(fragment);
 
 					return true;
 				case R.id.counseling:
-					toolbar.setTitle("Couneling");
 					fragment = new frag_counseling();
 					loadfragment(fragment);
 					return true;
 				case R.id.favourite:
-					toolbar.setTitle("Favourite");
+					fragment = new frag_favourite();
+					loadfragment(fragment);
 					return true;
 				case R.id.profile:
-					toolbar.setTitle("Profile");
+					fragment = new frag_profile();
+					loadfragment(fragment);
 					return true;
 
 				case R.id.logout:
-					toolbar.setTitle("Logout");
+
 					fragment = new frag_logout();
 					loadfragment(fragment);
 					return true;

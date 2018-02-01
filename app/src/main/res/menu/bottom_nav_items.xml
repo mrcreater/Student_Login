@@ -9,7 +9,7 @@
 
     <item
         android:id="@+id/counseling"
-        android:icon="@mipmap/ic_counseling"
+        android:icon="@drawable/ic_face_black_24dp"
         android:title="Counseling" />
 
 
@@ -27,6 +27,6 @@
     <item
         android:id="@+id/logout"
         android:icon="@drawable/ic_logout"
-        android:title="Logout" />
+        android:title="Settings" />
 
 </menu>
