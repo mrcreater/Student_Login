@@ -24,6 +24,6 @@ public class frag_favourite extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        getActivity().setTitle("Favourite");
     }
 }

@@ -19,9 +19,8 @@ import com.example.jaimin_patel.student_login.helper.SessionManager;
 import java.util.HashMap;
 
 /**
- * Created by PARIN on 1/30/2018.
+ * Created by Jaimin Patel on 1/30/2018.
  */
-
 public class frag_logout extends Fragment {
 
     private TextView txtName;
@@ -40,7 +39,7 @@ public class frag_logout extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        getActivity().setTitle("Settings");
         txtName = (TextView) getView().findViewById(R.id.name);
         txtEmail = (TextView) getView().findViewById(R.id.email);
         btnLogout = (Button) getView().findViewById(R.id.btnLogout);

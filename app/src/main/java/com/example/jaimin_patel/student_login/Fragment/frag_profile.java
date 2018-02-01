@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 
 import com.example.jaimin_patel.student_login.R;
 
+
 /**
- * Created by PARIN on 1/30/2018.
+ * Created by Jaimin Patel on 1/30/2018.
  */
 
 public class frag_profile extends Fragment {
@@ -19,12 +20,12 @@ public class frag_profile extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.frag_profile, container, false);
-
+        
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        getActivity().setTitle("Profile");
     }
 }

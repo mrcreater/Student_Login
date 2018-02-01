@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/li1">
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="What Are You Looking For"
+        android:typeface="monospace"
+        android:textStyle="bold"
+        android:textColor="#090909"
+        android:textSize="20dp" />
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt"
+        android:layout_margin="20dp">
+    </android.support.v7.widget.SearchView>
+</LinearLayout>
+    <View
+        android:layout_below="@+id/li1"
+        android:id="@+id/view1"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#d13033"/>
+    <LinearLayout
+        android:layout_below="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:divider="?android:dividerHorizontal">
+
+
+        <Button
+            android:id="@+id/news"
+            android:layout_width="1dp"
+            android:layout_weight="1"
+            android:backgroundTint="#f7ecec"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_login_bg"
+            android:text="News"
+            android:textColor="@color/btn_login" />
+
+    <Button
+        android:id="@+id/events"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:backgroundTint="#f7ecec"
+        android:layout_height="wrap_content"
+        android:background="@color/btn_login_bg"
+        android:text="Events"
+        android:textColor="@color/btn_login" />
+</LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fram_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
+</RelativeLayout>
