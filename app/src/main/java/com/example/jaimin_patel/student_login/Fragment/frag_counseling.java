@@ -8,11 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.QuickContactBadge;
 
 import com.example.jaimin_patel.student_login.R;
-import com.example.jaimin_patel.student_login.activity.counseling_aftertenth;
-import com.example.jaimin_patel.student_login.activity.counseling_aftertwelve;
 
 
 /**
@@ -21,7 +18,7 @@ import com.example.jaimin_patel.student_login.activity.counseling_aftertwelve;
 
 public class frag_counseling extends Fragment {
 
-    Button ten,twelve;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -34,27 +31,7 @@ public class frag_counseling extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         getActivity().setTitle("Counseling");
-    ten = getView().findViewById(R.id.ten);
-    twelve= getView().findViewById(R.id.twelve);
 
-
-    ten.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(getActivity(),counseling_aftertenth.class);
-            getActivity().startActivity(intent);
-        }
-    });
-
-
-    twelve.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Intent intent = new Intent(getActivity(),counseling_aftertwelve.class);
-        getActivity().startActivity(intent);
-
-        }
-    });
 
 
     }
