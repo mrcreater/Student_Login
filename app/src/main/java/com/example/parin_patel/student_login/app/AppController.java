@@ -1,6 +1,6 @@
-//Author : Jaimin Patel
+//Author : Parin Patel
 
-package com.example.jaimin_patel.student_login.app;
+package com.example.parin_patel.student_login.app;
 
 import android.app.Application;
 import android.text.TextUtils;
